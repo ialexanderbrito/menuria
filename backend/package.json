@@ -9,5 +9,17 @@
     "mongodb": "^3.6.3",
     "mongoose": "^5.10.15",
     "socket.io": "^3.0.3"
+  },
+  "devDependencies": {
+    "eslint": "5.16.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-jsx-a11y": "6.4.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "7.21.5",
+    "eslint-plugin-react-hooks": "4",
+    "nodemon": "^2.0.6",
+    "prettier": "^2.2.0"
   }
 }
