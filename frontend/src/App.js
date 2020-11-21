@@ -5,7 +5,7 @@ import { Container, Content } from './styles';
 
 import Orders from './components/Orders';
 
-import logo from './assets/logo.png';
+import logo from './assets/logo.svg';
 
 export default function App() {
   return (
