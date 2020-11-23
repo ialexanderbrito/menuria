@@ -27,4 +27,4 @@ app.use(cors());
 app.use(express.json());
 app.use(routes);
 
-module.exports = app;
+server.listen(3333, () => console.log('🚀 Backend started!'));
