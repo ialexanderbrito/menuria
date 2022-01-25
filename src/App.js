@@ -1,22 +1,30 @@
-import React from 'react';
+const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
+const http = require('http');
+const socketIo = require('socket.io');
 
-import GlobalStyles from './styles/GlobalStyles';
-import { Container, Content } from './styles';
+const routes = require('./routes');
 
-import Orders from './components/Orders';
+mongoose.connect(
+  'mongodb+srv://alexander:alexander@menuria.ggeef.mongodb.net/menuria?retryWrites=true&w=majority',
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+  }
+);
 
-import logo from './assets/logo.svg';
+const app = express();
+const server = http.Server(app);
+const io = socketIo(server);
 
-export default function App() {
-  return (
-    <>
-      <GlobalStyles />
-      <Container>
-        <Content>
-          <img src={logo} alt="Menuria" />
-          <Orders />
-        </Content>
-      </Container>
-    </>
-  );
-}
+app.use((request, response, next) => {
+  request.io = io;
+  return next();
+});
+app.use(cors());
+app.use(express.json());
+app.use(routes);
+
+server.listen(process.env.PORT, () => console.log('🚀 Backend started!'));
