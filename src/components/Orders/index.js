@@ -9,7 +9,7 @@ export default function Orders() {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    const socket = socketIo('http://localhost:3333', {
+    const socket = socketIo('https://menuria.herokuapp.com/', {
       transports: ['websocket'],
     });
     socket.on('newOrder', (order) => {
@@ -32,7 +32,7 @@ export default function Orders() {
   }, []);
 
   function handleStatusChange(status, order) {
-    fetch(`http://localhost:3333/orders/${order._id}/status`, {
+    fetch(`https://menuria.herokuapp.com/orders/${order._id}/status`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
