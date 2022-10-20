@@ -32,13 +32,16 @@ export default function Orders() {
   }, []);
 
   function handleStatusChange(status, order) {
-    fetch(`https://menuria-api.ialexanderbrito.dev/orders/${order._id}/status`, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ status }),
-    });
+    fetch(
+      `https://menuria-api.ialexanderbrito.dev/orders/${order._id}/status`,
+      {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ status }),
+      }
+    );
   }
 
   return (
